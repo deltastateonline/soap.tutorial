@@ -138,6 +138,6 @@ However this implementation is quite naive and quite unstructured. It is virtaul
 
 However the php client will work in its current state as shown.
 
-In the next part 2, we shall refactor the server code to make use of php autoloading features.
+In the part 2, we shall refactor the server code to make use of php autoloading features.
 
 [Implementing a SOAP API with PHP Part 2](Part2.md)
