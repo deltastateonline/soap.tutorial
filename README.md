@@ -51,7 +51,7 @@ A simple server file can be created as follows ``` server.php ```
 
 	public function bookDetails($book){		
 		foreach($this->_books as $bk){
-			if($bk['id']==$book->id)
+			if($bk['name']==$book->name)
 				return json_encode($bk);
 		}
 		return ""; // book not found
@@ -133,8 +133,11 @@ Done
 ```
 
 This tutorial show you that this is quite simple to get up and running.
-However this implement is quite limited and quite unstructured. It is virtaully impossible to make SOAP request to from a python client with the endpoint in its current state.
+
+However this implementation is quite naive and quite unstructured. It is virtaully impossible to make SOAP request to from a python client with the endpoint in its current state.
 
 However the php client will work in its current state as shown.
+
+In the next part 2, we shall refactor the server code to make use of php autoloading features.
 
 [Implementing a SOAP API with PHP Part 2](Part2.md)
