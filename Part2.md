@@ -1,4 +1,4 @@
-# Implementing a SOAP API with PHP Part 2
+# Implementing a SOAP API with PHP Part 2 - Refactoring API
 
 In this part, we shall simply refactor the code, by putting the logic to retrieve the book information in its own class.
 
@@ -72,4 +72,6 @@ $server->setClass($class);
 $server->handle();
 ```
 
-The reason we have refactored the bookService to its own name space, is that we need to generate a .wsdl file from the class definition.
+The reason we have refactored the bookService to its own namespace, is that we need to generate a .wsdl file from the class definition.
+
+[Implementing a SOAP API with PHP Part 3 - Generate WSDL](Part3.md)
