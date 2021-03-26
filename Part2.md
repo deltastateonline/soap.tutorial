@@ -74,7 +74,7 @@ $server->handle();
 
 The reason we have refactored the bookService to its own namespace, is that we need to generate a .wsdl file from the class definition.
 
-if you were to visit http://localhost:8091/server.php?wsdl in the browser, the following page will be rendered.
+if you were to visit <http://localhost:8091/server.php?wsdl> in the browser, the following page will be rendered.
 
 ![alt text](images/no-wsdl.png "No Wsdl attached to the api.")
 
