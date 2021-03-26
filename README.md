@@ -1,12 +1,12 @@
-# Implementing a SOAP API with PHP Part 1
+# Implementing a SOAP API with PHP
 
-Table of contents
+### Table of contents
 
 1. [Introduction](#introduction)
 2. [Refactoring API](Part2.md)
 3. [Generating WSDL file](Part2.md)
 
-## Introduction <a name="introduction"></a>
+## Introduction
 
 I recently had to implement some integration with one of our partners, who use SOAP.
 

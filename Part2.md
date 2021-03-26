@@ -1,4 +1,4 @@
-# Implementing a SOAP API with PHP Part 2 - Refactoring API
+# Implementing a SOAP API with PHP - Refactoring API
 
 In this part, we shall simply refactor the code, by putting the logic to retrieve the book information in its own class.
 
