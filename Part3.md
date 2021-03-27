@@ -129,3 +129,5 @@ class Book
     public $year;
 }
 ```
+
+[Implementing a SOAP API with PHP Part 1](README.md)
