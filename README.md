@@ -4,14 +4,13 @@
 
 1. [Introduction](#introduction)
 2. [Refactoring API](Part2.md)
-3. [Generating WSDL file](Part2.md)
+3. [Generating WSDL file](Part3.md)
 
 ## Introduction
 
 I recently had to implement some integration with one of our partners, who use SOAP.
 
 It had been a while since I worked on SOAP, so I tried refreshing my knowledge, but had a lot of problems getting all the information I needed in one place so I decided to create these notes.
-
 
 ### Creating a SOAP Endpoint
 
@@ -74,7 +73,7 @@ A simple server file can be created as follows ``` server.php ```
     $wsdl = NULL;
 
     // initialize SOAP Server
-    $server=new SoapServer($wsdl,[	
+    $server=new SoapServer($wsdl,[
         'uri'=>"http://localhost:8091/server.php"
     ]);
 
