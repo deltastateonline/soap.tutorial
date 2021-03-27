@@ -1,0 +1,12 @@
+{
+    "name":"deltastateonline/booksoapapi",
+    "description": "Building a soap api in php",
+    "require": {
+        "php2wsdl/php2wsdl": "^0.6.1"
+    },
+    "autoload":{
+        "psr-0":{
+            "Bookcatalog":"libs"
+        }
+    }
+}

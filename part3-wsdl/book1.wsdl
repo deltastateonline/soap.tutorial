@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost:8091" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Bookcatalog.BookService" targetNamespace="http://localhost:8091">
+  <types>
+    <xsd:schema targetNamespace="http://localhost:8091">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:complexType name="Bookcatalog.Book">
+        <xsd:all>
+          <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="year" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <portType name="Bookcatalog.BookServicePort">
+    <operation name="bookYear">
+      <input message="tns:bookYearIn"/>
+      <output message="tns:bookYearOut"/>
+    </operation>
+    <operation name="bookDetails">
+      <input message="tns:bookDetailsIn"/>
+      <output message="tns:bookDetailsOut"/>
+    </operation>
+  </portType>
+  <binding name="Bookcatalog.BookServiceBinding" type="tns:Bookcatalog.BookServicePort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="bookYear">
+      <soap:operation soapAction="http://localhost:8091#bookYear"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091"/>
+      </output>
+    </operation>
+    <operation name="bookDetails">
+      <soap:operation soapAction="http://localhost:8091#bookDetails"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091"/>
+      </output>
+    </operation>
+  </binding>
+  <message name="bookYearIn">
+    <part name="id" type="xsd:int"/>
+  </message>
+  <message name="bookYearOut">
+    <part name="return" type="xsd:int"/>
+  </message>
+  <message name="bookDetailsIn">
+    <part name="book" type="tns:Bookcatalog.Book"/>
+  </message>
+  <message name="bookDetailsOut">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <service name="Bookcatalog.BookServiceService">
+    <port name="Bookcatalog.BookServicePort" binding="tns:Bookcatalog.BookServiceBinding">
+      <soap:address location="http://localhost:8091"/>
+    </port>
+  </service>
+</definitions>
