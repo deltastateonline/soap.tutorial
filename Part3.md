@@ -94,7 +94,7 @@ class BookService
 
  /**
   * @soap
-  * @params Book $book
+  * @param Bookcatalog\Book $book
   * @return string  
   */
  public function bookDetails($book){  
@@ -107,9 +107,9 @@ class BookService
 }
 ```
 
-Because an input parameter $book is been used, a definition is needed for it.
-Since it is included in the same namespace, the prefix is not required.
-Book.php is defined as follows
+Because an input parameter $book is been used, a definition is needed for it. Also the definition for the class has to be fully qualified.
+
+```Book.php``` is defined as follows
 
 ```php
 <?php

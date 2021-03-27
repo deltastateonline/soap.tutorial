@@ -3,6 +3,12 @@
   <types>
     <xsd:schema targetNamespace="http://localhost:8091">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:complexType name="Bookcatalog.Book">
+        <xsd:all>
+          <xsd:element name="name" type="xsd:string"/>
+          <xsd:element name="year" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
     </xsd:schema>
   </types>
   <portType name="Bookcatalog.BookServicePort">
@@ -43,7 +49,7 @@
     <part name="return" type="xsd:int"/>
   </message>
   <message name="bookDetailsIn">
-    <part name="book" type="xsd:anyType"/>
+    <part name="book" type="tns:Bookcatalog.Book"/>
   </message>
   <message name="bookDetailsOut">
     <part name="return" type="xsd:string"/>

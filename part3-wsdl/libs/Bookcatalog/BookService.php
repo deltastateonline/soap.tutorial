@@ -29,7 +29,7 @@ class BookService
 
  /**
   * @soap
-  * @params Book $book
+  * @param Bookcatalog\Book $book
   * @return string  
   */
  public function bookDetails($book){  
