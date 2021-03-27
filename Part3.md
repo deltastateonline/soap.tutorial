@@ -28,5 +28,103 @@ $wsdlXML = $wsdlGenerator->dump();
 $wsdlXML = $wsdlGenerator->save('book.wsdl');
 
 ```
-However this will generate the follwoing 
 
+The wsdl file can now be specified in the server constructor as follows
+
+```php
+<?php
+ini_set("soap.wsdl_cache_enabled", "0");
+require_once __DIR__ . "/vendor/autoload.php";
+
+$class = "Bookcatalog\BookService";
+$wsdl = "book.wsdl";
+
+
+// initialize SOAP Server
+$server=new SoapServer($wsdl,[
+    'uri'=>"http://localhost:8091/server.php"
+]);
+
+$server->setClass($class);
+
+// start handling requests
+$server->handle();
+```
+
+To be able to generate a fully functional wsdl file however, the BookService class has to be fully annotated before the file is generated.
+
+## Annotations
+
+- @soap : On all methods that have to be exposed
+- @param : On input paramters
+- @return : On return types
+- @var : On fields in an input or output definition.
+
+The ```BookService.php``` is now defined as follows
+
+```php
+<?php
+namespace Bookcatalog;
+
+class BookService
+{
+ public function __construct(){
+        $this->_books  = [
+            ['id'=>'5409' , 'name'=>'Programming for Dummies','year'=>2011,'price'=>'12.09'],
+            ['id'=>'2311','name'=>'Project Management 101','year'=>2017,'price'=>'20.09'],
+            ['id'=>'98777','name'=>'Rust Development','year'=>2020,'price'=>'32.09'],
+        ];
+    }
+
+ /**
+  * @soap
+  * @param integer $id
+  * @return integer  
+  */
+    public function bookYear($id){
+  
+        $bookYear = "";
+        foreach($this->_books as $bk){
+            if($bk['id']==$id)
+                return $bk['year']; // book found
+        }
+
+        return $bookYear; // book not found
+    }
+
+ /**
+  * @soap
+  * @params Book $book
+  * @return string  
+  */
+ public function bookDetails($book){  
+    foreach($this->_books as $bk){
+        if($bk['name']==$book->name)
+            return json_encode($bk);
+    }
+    return ""; // book not found
+ }
+}
+```
+
+Because an input parameter $book is been used, a definition is needed for it.
+Since it is included in the same namespace, the prefix is not required.
+Book.php is defined as follows
+
+```php
+<?php
+namespace Bookcatalog;
+
+class Book
+{
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $year;
+}
+```

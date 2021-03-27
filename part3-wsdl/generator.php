@@ -11,4 +11,4 @@ $wsdlGenerator->generateWSDL(true);
 // Dump as string
 $wsdlXML = $wsdlGenerator->dump();
 // Or save as file
-$wsdlXML = $wsdlGenerator->save('book.wsdl');
+$wsdlXML = $wsdlGenerator->save('book1.wsdl');

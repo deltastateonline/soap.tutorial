@@ -128,8 +128,8 @@ $book =new Book();
 $book->name='Rust Development';
 
 try{
-    echo "Booking Year\t: " , $client->getBookYr($bookId),"\n";
-    echo "Booking Details\t: " ,$client->getBookDetails($book),"\n";
+    echo "Book Year\t: " , $client->getBookYr($bookId),"\n";
+    echo "Book Details\t: " ,$client->getBookDetails($book),"\n";
     echo "Done\n";
 }catch (Exception $e) {
     echo 'Caught exception: ',  $e->getMessage(), "\n";
