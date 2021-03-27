@@ -3,7 +3,7 @@ require_once __DIR__ . "/vendor/autoload.php";
 
 $class = "Bookcatalog\BookService";
 
-$serviceURI = "http://localhost:8091";
+$serviceURI = "http://localhost:8091/server.php";
 $wsdlGenerator = new PHP2WSDL\PHPClass2WSDL($class, $serviceURI);
 
 

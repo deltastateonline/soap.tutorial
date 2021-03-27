@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost:8091" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Bookcatalog.BookService" targetNamespace="http://localhost:8091">
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost:8091/server.php" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Bookcatalog.BookService" targetNamespace="http://localhost:8091/server.php">
   <types>
-    <xsd:schema targetNamespace="http://localhost:8091">
+    <xsd:schema targetNamespace="http://localhost:8091/server.php">
       <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
       <xsd:complexType name="Bookcatalog.Book">
         <xsd:all>
@@ -24,21 +24,21 @@
   <binding name="Bookcatalog.BookServiceBinding" type="tns:Bookcatalog.BookServicePort">
     <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
     <operation name="bookYear">
-      <soap:operation soapAction="http://localhost:8091#bookYear"/>
+      <soap:operation soapAction="http://localhost:8091/server.php#bookYear"/>
       <input>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091"/>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091/server.php"/>
       </input>
       <output>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091"/>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091/server.php"/>
       </output>
     </operation>
     <operation name="bookDetails">
-      <soap:operation soapAction="http://localhost:8091#bookDetails"/>
+      <soap:operation soapAction="http://localhost:8091/server.php#bookDetails"/>
       <input>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091"/>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091/server.php"/>
       </input>
       <output>
-        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091"/>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8091/server.php"/>
       </output>
     </operation>
   </binding>
@@ -56,7 +56,7 @@
   </message>
   <service name="Bookcatalog.BookServiceService">
     <port name="Bookcatalog.BookServicePort" binding="tns:Bookcatalog.BookServiceBinding">
-      <soap:address location="http://localhost:8091"/>
+      <soap:address location="http://localhost:8091/server.php"/>
     </port>
   </service>
 </definitions>
