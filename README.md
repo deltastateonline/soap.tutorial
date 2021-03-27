@@ -5,6 +5,7 @@
 1. [Introduction](#introduction)
 2. [Refactoring API](Part2.md)
 3. [Generating WSDL file](Part3.md)
+4. [Python Client](Part4.md)
 
 ## Introduction
 
