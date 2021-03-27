@@ -1,6 +1,6 @@
 # Implementing a SOAP API with PHP
 
-### Table of contents
+## Table of contents
 
 1. [Introduction](#introduction)
 2. [Refactoring API](Part2.md)
@@ -17,7 +17,7 @@ It had been a while since I worked on SOAP, so I tried refreshing my knowledge, 
 
 The endpoint is the URL where your service can be accessed by a client application. To inspect the WSDL you just add ?wsdl to the web service endpoint URL.
 
-We shall be building a simple books catalog service, which can be integrated with using a php and python soap client.
+We shall be building a simple books catalog service, which can be integrated with  a php and a python soap client.
 
 #### Requirements
 
@@ -43,32 +43,32 @@ A simple server file can be created as follows ``` server.php ```
 
     public function __construct(){
         $this->_books  = [
-			['id'=>'5409' , 'name'=>'Programming for Dummies','year'=>2011,'price'=>'12.09'],
-			['id'=>'2311','name'=>'Project Management 101','year'=>2017,'price'=>'20.09'],
-			['id'=>'98777','name'=>'Rust Development','year'=>2020,'price'=>'32.09'],
-		];
+            ['id'=>'5409' , 'name'=>'Programming for Dummies','year'=>2011,'price'=>'12.09'],
+            ['id'=>'2311','name'=>'Project Management 101','year'=>2017,'price'=>'20.09'],
+            ['id'=>'98777','name'=>'Rust Development','year'=>2020,'price'=>'32.09'],
+        ];
     }
 
     public function bookYear($id){
-		
-		$bookYear = "";
+
+        $bookYear = "";
         foreach($this->_books as $bk){
-			if($bk['id']==$id)
-				return $bk['year']; // book found
-		}
+            if($bk['id']==$id)
+                return $bk['year']; // book found
+        }
 
-		return $bookYear; // book not found
+        return $bookYear; // book not found
     }
 
-	public function bookDetails($book){		
-		foreach($this->_books as $bk){
-			if($bk['name']==$book->name)
-				return json_encode($bk);
-		}
-		return ""; // book not found
-	}
-
+    public function bookDetails($book){
+        foreach($this->_books as $bk){
+            if($bk['name']==$book->name)
+                return json_encode($bk);
+        }
+        return ""; // book not found
     }
+
+}
     $class = "BookService";
     
     $wsdl = NULL;
@@ -85,7 +85,7 @@ A simple server file can be created as follows ``` server.php ```
 ?>
 ```
 
-Next we shall create a client file ```client.php```to make request to the soap endpoint.
+Next we shall create a client file ```client.php``` to make requests to the soap endpoint.
 
 ```php
 <?php
@@ -139,14 +139,14 @@ try{
 
 ```shell
 C:\Development\soap.tutorial> php .\client.php
-Booking Year    : 2011
-Booking Details : {"id":"98777","name":"Rust Development","year":2020,"price":"32.09"}
+Book Year    : 2011
+Book Details : {"id":"98777","name":"Rust Development","year":2020,"price":"32.09"}
 Done
 ```
 
-This tutorial show you that this is quite simple to get up and running.
+This tutorial shows you that it is quite simple to get as soap server up and running.
 
-However this implementation is quite naive and quite unstructured. It is virtaully impossible to make SOAP request to from a python client with the endpoint in its current state.
+However this implementation is quite naive and quite unstructured. It is virtaully impossible to make SOAP request from a python client with the endpoint in its current state.
 
 However the php client will work in its current state as shown.
 

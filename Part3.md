@@ -55,10 +55,11 @@ To be able to generate a fully functional wsdl file however, the BookService cla
 
 ## Annotations
 
-- @soap : On all methods that have to be exposed
-- @param : On input paramters
-- @return : On return types
-- @var : On fields in an input or output definition.
+- @soap : On all methods that have to be exposed.
+- @param : On input paramters.
+- @return : On return types.
+- @var : On fields in an input or output class definition.
+
 
 The ```BookService.php``` is now defined as follows
 
